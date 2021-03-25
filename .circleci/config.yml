@@ -72,9 +72,12 @@ workflows:
   validate:
     jobs:
       - run-tests
-      - code-review:
-          requires:
-            - run-tests
+      #- code-review:
+          #requires:
+            #- run-tests
+      #- deploy-code:
+          #requires:
+            #- code-review
       - deploy-code:
           requires:
-            - code-review
+            - run-tests
