@@ -1,83 +1,31 @@
-version: 2.1 
+version: 2
 jobs:
-  run-tests:
+  deploy:
     docker:
       - image: circleci/node:latest
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - dependency-cache-{{ checksum "package.json" }}
-            - dependency-cache-
       - run:
           name: Install Dependencies
-          command: . build/install_dependencies.sh
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - node_modules
-      - run: 
-          name: Login to Org
-          command: . build/login_to_sandbox.sh
+          command: . build/install.sh
       - run:
-          name: Run Apex Tests
-          command: . build/run_apex_tests.sh
+          name: Authenticate
+          command: . build/setup-dev06.sh
+      - run:
+          name: Validate Components & Run Tests
+          command: . build/test-dev06.sh
       - store_test_results:
           path: test-results
-  code-review:
-    docker:
-      - image: circleci/node:latest
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - dependency-cache-{{ checksum "package.json" }}
-            - dependency-cache-
-      - run:
-          name: Install Dependencies
-          command: . build/install_dependencies.sh
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - node_modules
-      - run:
-          name: SFDX Scanner Analysis
-          command: . build/run_sfdx_scanner.sh
-      - store_artifacts:
-          path: sfdxScannerAnalysis.csv
-  deploy-code:
-    docker:
-      - image: circleci/node:latest
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - dependency-cache-{{ checksum "package.json" }}
-            - dependency-cache-
-      - run:
-          name: "Install Dependencies"
-          command: . build/install_dependencies.sh
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - node_modules
-      - run: 
-          name: Login to Org
-          command: . build/login_to_org.sh
-      - run:
-          name: Deploy to Org
-          command: . build/deploy_code.sh
 workflows:
   version: 2
   validate:
     jobs:
-      - run-tests
-      #- code-review:
-          #requires:
-            #- run-tests
-      #- deploy-code:
-          #requires:
-            #- code-review
-      - deploy-code:
-          requires:
-            - run-tests
+      - deploy:
+          filters:
+            branches:
+              only:
+                - Target
+              ignore:
+                - Source
+                - master
+                - PROD
