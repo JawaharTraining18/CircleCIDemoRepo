@@ -9,7 +9,7 @@ chmod +rwx ./.scripts/protoci-cfg.sh
 #sfdx force:auth:jwt:grant --clientid $SFDC_DEV06_CLIENTID --jwtkeyfile ./keys/server.key --username $SFDC_DEV06_USER --setdefaultdevhubusername --setalias $SFDC_DEV06_ALIAS --instanceurl  https://horiba-apac--dev06.my.salesforce.com/
 #sfdx force:org:list
 sudo chmod -R a+rwx .unpackaged
-sfdx force:mdapi:deploy -c --json -d .unpackaged/pre -u $SF_USERNAME -w 5 -l RunSpecifiedTests --apiversion 50.0
+sfdx force:mdapi:deploy -c --json -d .unpackaged/pre -u $SF_USERNAME -w 5 -l --apiversion 50.0
 #sfdx force:mdapi:deploy -c --json -d .unpackaged/pre -u $SFDC_DEV06_ALIAS -w 5 -l RunSpecifiedTests -r "SMAX_PS_SetFieldsOnWOWebServ_UT" --apiversion 50.0
 #sfdx force:mdapi:deploy -c --json -d .unpackaged/pre -u $SFDC_DEV06_ALIAS -l RunAllTestsInOrg
 #sfdx force:mdapi:deploy -c --json -d .unpackaged/retrieve/unpackaged
