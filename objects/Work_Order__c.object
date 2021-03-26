@@ -194,6 +194,14 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Subject__c</fullName>
+        <externalId>false</externalId>
+        <label>Subject</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Time</type>
+    </fields>
+    <fields>
         <fullName>Technician_Name__c</fullName>
         <externalId>false</externalId>
         <label>Technician Name</label>
