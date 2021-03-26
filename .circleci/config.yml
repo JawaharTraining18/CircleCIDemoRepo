@@ -24,8 +24,10 @@ workflows:
           filters:
             branches:
               only:
-                - Target
+                - Target2
               ignore:
                 - Source
                 - master
                 - PROD
+                - Target
+                - Source2
