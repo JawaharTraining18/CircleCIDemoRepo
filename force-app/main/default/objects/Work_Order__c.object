@@ -211,6 +211,16 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Test1__c</fullName>
+        <externalId>false</externalId>
+        <label>Test1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>Work Order</label>
     <nameField>
         <label>Work Order Name</label>
