@@ -137,7 +137,8 @@ mkdir -p $DEPLOY_DIRECTORY
 echo "file name6: $file"
 
 # organise meta items
-while IFS= read -d '' file; do
+#while IFS= read -r -d '' file; do
+while IFS= read  '' file; do
     echo "file name7: $file"
     pathPrefix=${file%/*}
     echo "pathPrefix: $pathPrefix"
