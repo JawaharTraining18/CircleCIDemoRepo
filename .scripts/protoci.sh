@@ -137,14 +137,18 @@ mkdir -p $DEPLOY_DIRECTORY
 echo "file name6: $file"
 
 # organise meta items
-while IFS= read -r -d '' file; do
+while IFS= read -d '' file; do
     echo "file name7: $file"
     pathPrefix=${file%/*}
+    echo "pathPrefix: $pathPrefix"
     METAFOLDER=${pathPrefix##*/}
+    echo "METAFOLDER: $METAFOLDER"
     tempFile3=${file##*/}
+    echo "tempFile3: $tempFile3"
     #echo "tempFile2 " $tempFile2
     #echo "tempFile3 " $tempFile3
     file=$METAFOLDER'/'$tempFile3
+    echo "file: $file"
 
 
 
