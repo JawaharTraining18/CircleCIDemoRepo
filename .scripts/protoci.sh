@@ -131,6 +131,7 @@ mkdir -p $DEPLOY_DIRECTORY
 
 # organise meta items
 while IFS= read -r -d '' file; do
+    echo "file name: $file"
     pathPrefix=${file%/*}
     METAFOLDER=${pathPrefix##*/}
     tempFile3=${file##*/}
