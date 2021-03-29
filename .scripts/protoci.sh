@@ -15,7 +15,7 @@
 
 
 ## default params
-echo "file name: $file"
+echo "file name1: $file"
 deploymentPhase="pre"
 #firstKnownGoodCommit=4fdec4746b42820116ff7d8810e365b570e966af
 firstKnownGoodCommit=b0784adaa4bbee28804364828b593545b2133656
@@ -36,7 +36,7 @@ while [[ "$#" -gt 0 ]]
     esac    
   shift
 done
-
+echo "file name2: $file"
 ############################################################
 # includes
 ############################################################
@@ -46,8 +46,9 @@ done
 ############################################################
 # Array Functions - thanks someone
 ############################################################
-
+echo "file name3: $file"
 # Dynamically create an array by name
+
 function arr() {
     [[ ! "$1" =~ ^[a-zA-Z_]+[a-zA-Z0-9_]*$ ]] && { echo "Invalid bash variable1" 1>&2 ; return 1 ; }
     declare -g -a $1=\(\)   
@@ -83,6 +84,7 @@ function arr_get() {
 ############################################################
 # Currently using a seed commit, but should move to build 
 # artefacts, last_known_successful_deploy
+echo "file name4: $file"
 
 if [ "$GIT_COMMIT_SEED" != "" ] ; then
     gitDiffCommitSeed=$GIT_COMMIT_SEED
@@ -119,6 +121,9 @@ else
 fi
 echo "Using gitDiffCommitSeed: $gitDiffCommitSeed"
 
+echo "file name5: $file"
+
+
 ############################################################
 # Organise Metadata & Copy Files
 ############################################################
@@ -129,10 +134,11 @@ DEPLOY_DIRECTORY=".unpackaged/$deploymentPhase"
 
 # make destination
 mkdir -p $DEPLOY_DIRECTORY
+echo "file name6: $file"
 
 # organise meta items
 while IFS= read -r -d '' file; do
-    echo "file name: $file"
+    echo "file name7: $file"
     pathPrefix=${file%/*}
     METAFOLDER=${pathPrefix##*/}
     tempFile3=${file##*/}
