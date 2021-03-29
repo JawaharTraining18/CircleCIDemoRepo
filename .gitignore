@@ -38,9 +38,10 @@ ehthumbs.db
 $RECYCLE.BIN/
 
 
-build/generate-keys.sh
-build/generate-keysv3.sh
-build/generate-keys.sh
-build/test.sh
-build/TestJWT.sh
-build/test.sh
+.circleci
+.scripts
+.vscode
+build
+config
+force-app
+scripts
