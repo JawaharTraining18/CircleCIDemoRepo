@@ -3,7 +3,7 @@ SFDC_DEV06_USER=$(echo "deepak.andeli@servicemax.com.hts.dev06")
 chmod +rwx ./.scripts/protoci.sh
 chmod +rwx ./.scripts/protoci-cfg.sh
 #./.scripts/protoci.sh -r force-app/main/default/
-./.scripts/protoci.sh -r CircleCIDemoRepo
+./.scripts/protoci.sh -r CircleCIDemoRepo/
 
 #ls -la
 #sfdx force:org:list
