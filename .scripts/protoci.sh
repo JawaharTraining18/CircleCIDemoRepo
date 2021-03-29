@@ -138,7 +138,7 @@ echo "file name6: $file"
 
 # organise meta items
 #while IFS= read -r -d '' file; do
-while IFS= read  '' file; do
+while IFS= read  -r file; do
     echo "file name7: $file"
     pathPrefix=${file%/*}
     echo "pathPrefix: $pathPrefix"
