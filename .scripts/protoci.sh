@@ -16,7 +16,8 @@
 
 ## default params
 deploymentPhase="pre"
-firstKnownGoodCommit=4fdec4746b42820116ff7d8810e365b570e966af
+#firstKnownGoodCommit=4fdec4746b42820116ff7d8810e365b570e966af
+firstKnownGoodCommit=b0784adaa4bbee28804364828b593545b2133656
 
 ## get params
 while [[ "$#" -gt 0 ]]
