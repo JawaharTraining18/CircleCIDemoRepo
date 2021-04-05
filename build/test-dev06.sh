@@ -24,6 +24,8 @@ mkdir deployables
 for i in `ls -l`; do
   if [[ "$i" =~ ^(objects|jawa2|jawa4)$ ]];
   then
+   echo "folder name"
+   echo $i
    cp -R $i deployables
   fi
 done
