@@ -10,10 +10,10 @@ chmod +rwx ./.scripts/protoci-cfg.sh
 #sfdx force:auth:jwt:grant --clientid $SFDC_DEV06_CLIENTID --jwtkeyfile ./keys/server.key --username $SFDC_DEV06_USER --setdefaultdevhubusername --setalias $SFDC_DEV06_ALIAS --instanceurl  https://horiba-apac--dev06.my.salesforce.com/
 #sfdx force:org:list
 sudo chmod -R a+rwx .unpackaged
-sfdx force:mdapi:deploy -c --json -d .unpackaged/pre -u $SF_USERNAME -w 5 -l RunLocalTests --apiversion 50.0
+##sfdx force:mdapi:deploy -c --json -d .unpackaged/pre -u $SF_USERNAME -w 5 -l RunLocalTests --apiversion 50.0
 #sfdx force:mdapi:deploy -c --json -d .unpackaged/pre -u $SFDC_DEV06_ALIAS -w 5 -l RunSpecifiedTests -r "SMAX_PS_SetFieldsOnWOWebServ_UT" --apiversion 50.0
 #sfdx force:mdapi:deploy -c --json -d .unpackaged/pre -u $SFDC_DEV06_ALIAS -l RunAllTestsInOrg
 #sfdx force:mdapi:deploy -c --json -d .unpackaged/retrieve/unpackaged
-#sfdx force:source:deploy -c -p ../force-app/main/default -u $SFDC_DEV06_ALIAS
+sfdx force:source:deploy -c -p ../force-app/main/default -u $SF_USERNAME
 #sfdx force:mdapi:retrieve --json -k .unpackaged/pre/package.xml -r .unpackaged/retrieve
 #sfdx force:apex:test:run --testlevel RunLocalTests --outputdir test-results --resultformat tap --targetusername $SFDC_DEV06_ALIAS
