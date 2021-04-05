@@ -29,9 +29,9 @@ for i in `ls -l`; do
    cp -R $i deployables
   fi
 done
-cd deployables
-echo "inside ddeployables"
-ls
+#cd deployables
+#echo "inside ddeployables"
+#ls
 sfdx force:source:deploy -c -p deployables -u $SF_USERNAME
  
 #custom code
