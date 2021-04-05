@@ -15,7 +15,7 @@ sudo chmod -R a+rwx .unpackaged
 #sfdx force:mdapi:deploy -c --json -d .unpackaged/pre -u $SFDC_DEV06_ALIAS -l RunAllTestsInOrg
 #sfdx force:mdapi:deploy -c --json -d .unpackaged/retrieve/unpackaged
 #sfdx force:source:deploy -c -p ../force-app/main/default -u $SF_USERNAME
-pwd
+echo $PWD
 sfdx force:source:deploy -c -p ../force-app -u $SF_USERNAME
 #sfdx force:mdapi:retrieve --json -k .unpackaged/pre/package.xml -r .unpackaged/retrieve
 #sfdx force:apex:test:run --testlevel RunLocalTests --outputdir test-results --resultformat tap --targetusername $SFDC_DEV06_ALIAS
