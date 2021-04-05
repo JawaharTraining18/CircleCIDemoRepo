@@ -6,6 +6,7 @@
         <members>Work_Order__c.Test1__c</members>
         <members>Work_Order__c.Test2__c</members>
         <members>Work_Order__c.Test3__c</members>
+        <members>Work_Order__c.test4__c</members>
         <name>CustomField</name>
     </types>
     <types>
