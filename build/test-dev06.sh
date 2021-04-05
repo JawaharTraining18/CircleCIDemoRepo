@@ -15,8 +15,20 @@ sudo chmod -R a+rwx .unpackaged
 #sfdx force:mdapi:deploy -c --json -d .unpackaged/pre -u $SFDC_DEV06_ALIAS -l RunAllTestsInOrg
 #sfdx force:mdapi:deploy -c --json -d .unpackaged/retrieve/unpackaged
 #sfdx force:source:deploy -c -p ../force-app/main/default -u $SF_USERNAME
-echo $PWD
-ls
-sfdx force:source:deploy -c -p ../force-app -u $SF_USERNAME
+#echo $PWD
+#ls
+#sfdx force:source:deploy -c -p ../force-app -u $SF_USERNAME
+
+#custom code 
+mkdir deployables
+for i in `ls -l`; do
+  if [[ "$i" =~ ^(objects|jawa2|jawa4)$ ]];
+  then
+   cp -R $i deployables
+  fi
+done
+sfdx force:source:deploy -c -p deployables -u $SF_USERNAME
+ 
+#custom code
 #sfdx force:mdapi:retrieve --json -k .unpackaged/pre/package.xml -r .unpackaged/retrieve
 #sfdx force:apex:test:run --testlevel RunLocalTests --outputdir test-results --resultformat tap --targetusername $SFDC_DEV06_ALIAS
