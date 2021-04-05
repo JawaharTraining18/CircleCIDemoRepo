@@ -32,7 +32,13 @@ done
 #cd deployables
 #echo "inside ddeployables"
 #ls
-sfdx force:source:deploy -c -p deployables -u $SF_USERNAME
+echo "Coverting source to metadata format"
+sfdx force:source:convert -d deploy_code -r deployables
+
+echo "Deploying code to org"
+sfdx force:mdapi:deploy -u DevHub -d deploy_code/ -w -1 -l RunLocalTests
+
+#sfdx force:source:deploy -c -p deployables -u $SF_USERNAME
  
 #custom code
 #sfdx force:mdapi:retrieve --json -k .unpackaged/pre/package.xml -r .unpackaged/retrieve
