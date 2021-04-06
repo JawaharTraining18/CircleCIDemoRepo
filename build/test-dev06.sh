@@ -22,7 +22,7 @@ sudo chmod -R a+rwx .unpackaged
 #custom code 
 mkdir deployables
 for i in `ls -l`; do
-  if [[ "$i" =~ ^(objects|jawa2|jawa4)$ ]];
+  if [[ "$i" =~ ^(objects|package.xml)$ ]];
   then
    echo "folder name"
    echo $i
