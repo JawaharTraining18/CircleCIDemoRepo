@@ -1,8 +1,8 @@
 chmod +rwx ./.scripts/protoci.sh
 chmod +rwx ./.scripts/protoci-cfg.sh
-#./.scripts/protoci.sh -r force-app/main/default/
+./.scripts/protoci.sh -r force-app/main/default/
 #./.scripts/protoci.sh -r CircleCIDemoRepo/
-./.scripts/protoci.sh -r
+#./.scripts/protoci.sh -r
 
 #ls -la
 #sfdx force:org:list
