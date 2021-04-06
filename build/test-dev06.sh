@@ -22,7 +22,7 @@ sudo chmod -R a+rwx .unpackaged
 #custom code 
 mkdir deployables
 for i in `ls -l`; do
-  if [[ "$i" =~ ^(objects|flows)$ ]];
+  if [[ "$i" =~ ^(objects|flows|package.xml)$ ]];
   then
    echo "folder name"
    echo $i
